@@ -1,0 +1,38 @@
+{
+  "presets": ["@babel/preset-env"],
+  "plugins": [
+    [
+      "@babel/plugin-transform-react-jsx",
+      {
+        "pragma": "jsx",
+        "pragmaFrag": "jsxFrag"
+      }
+    ],
+    [
+      "babel-plugin-jsx-pragmatic",
+      {
+        "module": "jsxJson",
+        "import": "jsx",
+        "export": "createObject"
+      },
+      "jsx"
+    ],
+    [
+      "babel-plugin-jsx-pragmatic",
+      {
+        "module": "jsxJson",
+        "import": "jsxFrag",
+        "export": "Fragment"
+      },
+      "jsxFrag"
+    ],
+    [
+      "babel-plugin-module-resolver",
+      {
+        "alias": {
+          "jsxJson": "./src/jsxJson.js"
+        }
+      }
+    ]
+  ]
+}
