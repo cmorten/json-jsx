@@ -84,7 +84,7 @@ You can now use JSX and JSX Fragments `<></>` in your codebase and Babel will pa
 
 See below for an example of various ways you can use this syntax.
 
-```js
+```jsx
 const EslintExtensions = ({ children }) => ({ extends: children });
 const EslintPlugins = ({ plugins }) => ({ plugins });
 
