@@ -4,7 +4,7 @@
   "description": "JSX library for creating JSON.",
   "main": "lib/index.es5.js",
   "module": "lib/index.js",
-  "types": "types/index.d.ts",
+  "types": "typings/index.d.ts",
   "license": "MIT",
   "repository": {
     "type": "git",

@@ -1,6 +1,6 @@
 *
 !lib/*
-!types/*
+!typings/*
 !docs/CHANGELOG.md
 !LICENSE
 !package.json

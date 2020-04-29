@@ -11,6 +11,7 @@
 
 - Small variable naming changes: `component` -> `type`.
 - Updated `publish.yml` action to use `npm publish` instead of `yarn publish` due to `.npmignore` irregularities.
+- Moved to NPM registry.
 
 ## [1.0.0] - 28-04-2020
 
