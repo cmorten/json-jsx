@@ -1,9 +1,10 @@
 {
   "name": "json-jsx",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "JSX library for creating JSON.",
   "main": "lib/index.es5.js",
   "module": "lib/index.js",
+  "types": "types/index.d.ts",
   "license": "MIT",
   "repository": {
     "type": "git",

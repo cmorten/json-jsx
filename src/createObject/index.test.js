@@ -16,7 +16,7 @@ const mockProps = { "test-props-key": Symbol("test-props-value") };
 const mockChildren = [Symbol("test-child"), Symbol("test-child")];
 
 describe("createObject", () => {
-  let mockComponent;
+  let mockType;
   let result;
 
   beforeEach(() => {
@@ -54,7 +54,7 @@ describe("createObject", () => {
       });
 
       it("should call checkProps with the component and an object containing the props entries and the children as a entry", () => {
-        expect(checkProps).toHaveBeenCalledWith(mockComponent, {
+        expect(checkProps).toHaveBeenCalledWith(mockType, {
           ...mockProps,
           children: mockChildren,
         });
@@ -67,16 +67,14 @@ describe("createObject", () => {
       );
 
       beforeEach(() => {
-        mockComponent = jest
-          .fn()
-          .mockReturnValue(mockFunctionalComponentOutput);
-        result = createObject(mockComponent, mockProps, ...mockChildren);
+        mockType = jest.fn().mockReturnValue(mockFunctionalComponentOutput);
+        result = createObject(mockType, mockProps, ...mockChildren);
       });
 
       commonAssertions();
 
       it("should invoke the functional component with an object containing the props entries and the children as a entry", () => {
-        expect(mockComponent).toHaveBeenCalledWith({
+        expect(mockType).toHaveBeenCalledWith({
           ...mockProps,
           children: mockChildren,
         });
@@ -92,9 +90,9 @@ describe("createObject", () => {
         const mockCreateFragmentOutput = Symbol("test-create-fragment-output");
 
         beforeEach(() => {
-          mockComponent = JSX_FRAGEMENT_TYPE;
+          mockType = JSX_FRAGEMENT_TYPE;
           createFragment.mockReturnValue(mockCreateFragmentOutput);
-          result = createObject(mockComponent, mockProps, ...mockChildren);
+          result = createObject(mockType, mockProps, ...mockChildren);
         });
 
         commonAssertions();
@@ -112,16 +110,16 @@ describe("createObject", () => {
         const mockCreateElementOutput = Symbol("test-create-element-output");
 
         beforeEach(() => {
-          mockComponent = Symbol("test-component");
+          mockType = "test-component";
           createElement.mockReturnValue(mockCreateElementOutput);
-          result = createObject(mockComponent, mockProps, ...mockChildren);
+          result = createObject(mockType, mockProps, ...mockChildren);
         });
 
         commonAssertions();
 
         it("should call createElement with the component, props and children", () => {
           expect(createElement).toHaveBeenCalledWith(
-            mockComponent,
+            mockType,
             mockProps,
             mockChildren
           );
